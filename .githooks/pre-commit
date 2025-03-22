@@ -11,10 +11,10 @@ ARGS+=(--hook-dir "$HERE" -- "$@")
 npx prettier . --write | awk '{print $1}' | xargs git add
 
 if [ -x "$INSTALL_PYTHON" ]; then
-	exec "$INSTALL_PYTHON" -mpre_commit "${ARGS[@]}"
+    exec "$INSTALL_PYTHON" -mpre_commit "${ARGS[@]}"
 elif command -v pre-commit >/dev/null; then
-	exec pre-commit "${ARGS[@]}"
+    exec pre-commit "${ARGS[@]}"
 else
-	echo "pre-commit not found.  Did you forget to activate your virtualenv?" 1>&2
-	exit 1
+    echo "pre-commit not found.  Did you forget to activate your virtualenv?" 1>&2
+    exit 1
 fi
