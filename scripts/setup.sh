@@ -144,6 +144,28 @@ if ! command -v trufflehog &> /dev/null; then
 else
     echo -e "${SUCCESS_TAG} TruffleHog 이미 설치됨"
 fi
+
+# Wily 설치 및 초기 데이터 생성
+if ! command -v wily &> /dev/null; then
+    echo "   > Wily(코드 복잡도 분석) 설치 중..."
+    pip install wily > /dev/null 2>&1
+
+    if ! command -v wily &> /dev/null; then
+         check_error 1  "Wily 설치 실패 (수동 설치 필요)"
+    else
+         echo -e "${SUCCESS_TAG} Wily 도구 설치 완료"
+    fi
+else
+    echo -e "${SUCCESS_TAG} Wily 이미 설치됨"
+fi
+
+# Wily Build (존재하는 경우에만 실행)
+if command -v wily &> /dev/null; then
+    echo "   > Wily 초기 데이터(Cache) 생성 중..."
+    # Git 기록이 없거나 파일이 없으면 실패할 수 있으므로 에러 무시 처리
+    wily build > /dev/null 2>&1
+    check_error $? "Wily 초기 설정 완료"
+fi
 # ---------------------------------------------------------
 # 3. OpenCommit 설정
 # ---------------------------------------------------------

@@ -43,7 +43,17 @@ repos:
         args: [--fix]
       - id: ruff-format
 
-  # 4. 커밋 메시지 규칙 검사 (Custom Local Hook)
+  # 4. 코드 복잡도 분석 (Wily)
+  - repo: local
+    hooks:
+      - id: wily
+        name: wily
+        entry: wily diff
+        language: python
+        additional_dependencies: [wily] # 가상환경에 wily 자동 설치
+        verbose: true # 통과하더라도 분석 결과를 출력하도록 설정
+
+  # 5. 커밋 메시지 규칙 검사 (Custom Local Hook)
   - repo: local
     hooks:
       - id: smart-commit-msg
