@@ -9,8 +9,8 @@
 ## 1. 주요 기능 (Features)
 
 - 보안 (Security): TruffleHog를 통한 비밀 키(Secret Key) 커밋 방지
-- 품질 (Quality): SonarQube/SonarCloud 연동 자동화
-- 자동화 (Automation): pre-commit 훅을 이용한 코드 포맷팅(Prettier) 및 커밋 메시지 검사
+- 품질 (Quality): SonarQube(정적 분석), Ruff(고속 린터), MyPy(타입 검사) 연동
+- 자동화 (Automation): pre-commit 훅을 이용한 코드 포맷팅(Prettier) 및 커밋 메시지 검사, GitHub Actions(CI/CD)를 통한 테스트 및 배포 자동화
 - AI 지원 (AI Assistant): OpenCommit(Gemini)을 이용한 커밋 메시지 자동 작성
 
 ---
