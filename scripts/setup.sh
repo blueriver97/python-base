@@ -163,7 +163,7 @@ fi
 if command -v wily &> /dev/null; then
     echo "   > Wily 초기 데이터(Cache) 생성 중..."
     # Git 기록이 없거나 파일이 없으면 실패할 수 있으므로 에러 무시 처리
-    wily build > /dev/null 2>&1
+    wily build src > /dev/null 2>&1
     check_error $? "Wily 초기 설정 완료"
 fi
 # ---------------------------------------------------------
