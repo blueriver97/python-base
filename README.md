@@ -93,7 +93,7 @@ pip install -r requirements.txt
 
 ---
 
-## 6. 부록 (Appendix)
+## A. 부록 (Appendix)
 
 이 프로젝트는 커밋 시 `pre-commit`을 통해 다음 도구들로 코드 품질과 보안을 자동으로 검사합니다.
 
